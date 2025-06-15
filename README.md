@@ -20,6 +20,7 @@ mongodb-eduhub-project/
 ├── docs/
 │   ├── performance_analysis.md
 │   └── presentation.pptx
+├── License
 └── .gitignore
 ```
 
