@@ -151,11 +151,11 @@ Sample data is provided for testing and demonstration purposes:
 ## 📌 Author
 
 **Osato Osazuwa**  
-GitHub: [@yourusername](https://github.com/yourusername)  
+GitHub: [@OsatoOsazuwa](https://github.com/OsatoOsazuwa)  
 Email: osato.osazuwa@gmail.com
 
 ---
 
 ## 📄 License
 
-This project is licensed for academic and demonstration purposes only.
+This project is licensed under the [MIT License](LICENSE).
