@@ -1,0 +1,265 @@
+{
+    "users": {
+        "$jsonSchema": {
+            "bsonType": "object",
+            "required": [
+                "userId",
+                "email",
+                "firstName",
+                "lastName",
+                "role"
+            ],
+            "properties": {
+                "userId": {
+                    "bsonType": "string"
+                },
+                "email": {
+                    "bsonType": "string",
+                    "pattern": "^.+@.+$"
+                },
+                "firstName": {
+                    "bsonType": "string"
+                },
+                "lastName": {
+                    "bsonType": "string"
+                },
+                "role": {
+                    "enum": [
+                        "student",
+                        "instructor"
+                    ]
+                },
+                "dateJoined": {
+                    "bsonType": "date"
+                },
+                "profile": {
+                    "bsonType": "object",
+                    "properties": {
+                        "bio": {
+                            "bsonType": "string"
+                        },
+                        "avatar": {
+                            "bsonType": "string"
+                        },
+                        "skills": {
+                            "bsonType": "array",
+                            "items": {
+                                "bsonType": "string"
+                            }
+                        }
+                    }
+                },
+                "isActive": {
+                    "bsonType": "bool"
+                }
+            }
+        }
+    },
+    "courses": {
+        "$jsonSchema": {
+            "bsonType": "object",
+            "required": [
+                "courseId",
+                "title",
+                "instructorId",
+                "level"
+            ],
+            "properties": {
+                "courseId": {
+                    "bsonType": "string"
+                },
+                "title": {
+                    "bsonType": "string"
+                },
+                "description": {
+                    "bsonType": "string"
+                },
+                "instructorId": {
+                    "bsonType": "string"
+                },
+                "category": {
+                    "bsonType": "string"
+                },
+                "level": {
+                    "enum": [
+                        "beginner",
+                        "intermediate",
+                        "advanced"
+                    ]
+                },
+                "duration": {
+                    "bsonType": "double"
+                },
+                "price": {
+                    "bsonType": "double"
+                },
+                "tags": {
+                    "bsonType": "array",
+                    "items": {
+                        "bsonType": "string"
+                    }
+                },
+                "createdAt": {
+                    "bsonType": "date"
+                },
+                "updatedAt": {
+                    "bsonType": "date"
+                },
+                "isPublished": {
+                    "bsonType": "bool"
+                },
+                "rating": {
+                    "bsonType": "double"
+                }
+            }
+        }
+    },
+    "assignments": {
+        "$jsonSchema": {
+            "bsonType": "object",
+            "required": [
+                "assignmentId",
+                "courseId",
+                "title",
+                "description",
+                "dueDate"
+            ],
+            "properties": {
+                "assignmentId": {
+                    "bsonType": "string"
+                },
+                "courseId": {
+                    "bsonType": "string"
+                },
+                "lessonId": {
+                    "bsonType": "string"
+                },
+                "title": {
+                    "bsonType": "string"
+                },
+                "description": {
+                    "bsonType": "string"
+                },
+                "dueDate": {
+                    "bsonType": "date"
+                },
+                "points": {
+                    "bsonType": "int"
+                },
+                "createdAt": {
+                    "bsonType": "date"
+                }
+            }
+        }
+    },
+    "submissions": {
+        "$jsonSchema": {
+            "bsonType": "object",
+            "required": [
+                "submissionId",
+                "assignmentId",
+                "studentId",
+                "submittedAt"
+            ],
+            "properties": {
+                "submissionId": {
+                    "bsonType": "string"
+                },
+                "assignmentId": {
+                    "bsonType": "string"
+                },
+                "studentId": {
+                    "bsonType": "string"
+                },
+                "content": {
+                    "bsonType": "string"
+                },
+                "grade": {
+                    "bsonType": "double"
+                },
+                "feedback": {
+                    "bsonType": "string"
+                },
+                "submittedAt": {
+                    "bsonType": "date"
+                }
+            }
+        }
+    },
+    "enrollments": {
+        "$jsonSchema": {
+            "bsonType": "object",
+            "required": [
+                "enrollmentId",
+                "studentId",
+                "courseId",
+                "enrolledAt",
+                "status"
+            ],
+            "properties": {
+                "enrollmentId": {
+                    "bsonType": "string"
+                },
+                "studentId": {
+                    "bsonType": "string"
+                },
+                "courseId": {
+                    "bsonType": "string"
+                },
+                "enrolledAt": {
+                    "bsonType": "date"
+                },
+                "status": {
+                    "enum": [
+                        "active",
+                        "completed",
+                        "dropped"
+                    ]
+                },
+                "progress": {
+                    "bsonType": "double",
+                    "minimum": 0,
+                    "maximum": 100
+                }
+            }
+        }
+    },
+    "lessons": {
+        "$jsonSchema": {
+            "bsonType": "object",
+            "required": [
+                "lessonId",
+                "courseId",
+                "title",
+                "content",
+                "order"
+            ],
+            "properties": {
+                "lessonId": {
+                    "bsonType": "string"
+                },
+                "courseId": {
+                    "bsonType": "string"
+                },
+                "title": {
+                    "bsonType": "string"
+                },
+                "content": {
+                    "bsonType": "string"
+                },
+                "resources": {
+                    "bsonType": "array",
+                    "items": {
+                        "bsonType": "string"
+                    }
+                },
+                "order": {
+                    "bsonType": "int"
+                },
+                "createdAt": {
+                    "bsonType": "date"
+                }
+            }
+        }
+    }
+}
