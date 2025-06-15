@@ -98,6 +98,26 @@ Schema validation is enforced using MongoDB's `$jsonSchema` validator.
    - Used `.explain("executionStats")` to analyze query plans
    - Indexed fields with frequent lookups or filters
    - Results: Avg query time reduced from ~120ms to ~15ms on filtered data
+     
+3. **Full-Text Search on Courses**:
+```python
+db.courses.find({ "$text": { "$search": "machine learning" } })
+```
+- **Text Index Used**
+- **Result:** Relevant matches across title and description in < 1 ms ✅
+  
+## 🗃️ Data Archiving Strategy
+
+To maintain performance and reduce collection size:
+
+- **Old Records Migration**: Outdated assignments and inactive enrollments are moved to archival collections (e.g., `archived_assignments`, `archived_enrollments`).
+- **Archiving Criteria**: Based on timestamps (e.g., completed > 6 months ago).
+- **Automation**: Scheduled script runs monthly to offload data.
+
+**Benefits:**
+- Keeps active collections lightweight.
+- Improves query speed for current data.
+- Ensures historical data remains accessible for audits/reports.
 
 👉 Full analysis documented in [`docs/performance_analysis.md`](docs/performance_analysis.md)
 
